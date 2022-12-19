@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js"></script>
@@ -22,5 +22,33 @@
     const element = <SayHello firstName={false} />
 
     ReactDOM.render(element, rootElement)
+  </script>
+</body> -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+    const Custom = ({ firstName, lastName }) => (
+      <div>{`Hello ${firstName} ${lastName}`}</div>
+    );
+    const PropTypes = {
+      string(props, propName, componentName) {
+        if (typeof props.propName !== "string") {
+          return new Error(
+            `The component ${componentName} prop ${propName} should be of type string but the given props is of type ${typeof props.propName}`
+          );
+        }
+      },
+    };
+    Custom.propTypes = {
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    };
+    const element = <Custom firstName={"Avinash"} lastName={false} />;
+    ReactDOM.render(element, rootElement);
   </script>
 </body>

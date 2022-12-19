@@ -1,20 +1,20 @@
-<body>
+<!-- <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-    const rootElement = document.getElementById('root')
+    const rootElement = document.getElementById("root");
 
-    const state = {eventCount: 0, username: ''}
+    const state = { eventCount: 0, username: "" };
 
     function App() {
       function handleClick() {
-        setState({eventCount: state.eventCount + 1})
+        setState({ eventCount: state.eventCount + 1 });
       }
 
       function handleChange(event) {
-        setState({username: event.target.value})
+        setState({ username: event.target.value });
       }
 
       return (
@@ -28,18 +28,53 @@
             <input onChange={handleChange} />
           </p>
         </div>
-      )
+      );
     }
 
     function setState(newState) {
-      Object.assign(state, newState)
-      renderApp()
+      Object.assign(state, newState);
+      renderApp();
     }
 
     function renderApp() {
-      ReactDOM.render(<App />, document.getElementById('root'))
+      ReactDOM.render(<App />, document.getElementById("root"));
     }
 
-    renderApp()
+    renderApp();
+  </script>
+</body> -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+    const state = { count: 0 };
+
+    function App() {
+      const handleClick = () => {
+        setState({ count: state.count + 1 });
+      };
+
+      return (
+        <div>
+          <h1>{state.count}</h1>
+          <button onClick={handleClick}>Press Me to Increment</button>
+        </div>
+      );
+    }
+
+    function setState(newState) {
+      Object.assign(state, newState);
+      renderAgain();
+    }
+
+    function renderAgain() {
+      ReactDOM.render(<App />, rootElement);
+    }
+
+    renderAgain();
   </script>
 </body>

@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
@@ -89,5 +89,33 @@
     }
 
     ReactDOM.render(<App />, document.getElementById('root'))
+  </script>
+</body> -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function App() {
+      const refObj = React.useRef();
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log(refObj.current);
+      };
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Enter Name: </label>
+          <input ref={refObj} />
+          <button type="submit">Click to console refObj</button>
+        </form>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
   </script>
 </body>

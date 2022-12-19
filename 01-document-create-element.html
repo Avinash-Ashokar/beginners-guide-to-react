@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <div id="root"></div>
   <script type="text/javascript">
     const rootElement = document.getElementById('root')
@@ -6,5 +6,16 @@
     element.textContent = 'Hello World'
     element.className = 'container'
     rootElement.appendChild(element)
+  </script>
+</body> -->
+
+<body>
+  <div id="root"></div>
+  <script>
+    const rootElement = document.getElementById("root");
+    const element = document.createElement("div");
+    element.textContent = "Hi I am Avinash";
+    element.id = "child";
+    rootElement.appendChild(element);
   </script>
 </body>
